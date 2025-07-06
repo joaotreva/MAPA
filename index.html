@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Pedro Treva Mendes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+    :root {
+            --primary-color: #3498db; /* Azul vibrante */
+            --secondary-color: #2c3e50; /* Azul escuro */
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --white: #fff;
+            --border-radius: 8px;
+            --padding-section: 60px 20px;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #2980b9; /* Azul um pouco mais escuro no hover */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        header .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header h1 {
+            color: var(--white);
+            margin-bottom: 5px;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Menu de Navegação */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--white);
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--primary-color);
+        }
+
+        /* Seções Principais */
+        main section {
+            padding: var(--padding-section);
+            border-bottom: 1px solid #eee;
+            background-color: var(--white);
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        main section:last-of-type {
+            border-bottom: none;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+        }
+
+        /* Seção Sobre Mim */
+        #sobre-mim p {
+            text-align: justify;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Seção Habilidades */
+        #habilidades ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        #habilidades ul li {
+            background-color: var(--light-bg);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #habilidades ul li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        /* Seção Projetos */
+        #projetos {
+            background-color: var(--light-bg); /* Fundo diferente para a seção projetos */
+        }
+
+        #projetos .projetos-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        #projetos article {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #projetos article:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        #projetos article h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        #projetos article p {
+            margin-bottom: 20px;
+        }
+
+        .project-links a {
+            display: inline-block;
+            margin-right: 15px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            background-color: #2980b9;
+        }
+
+        /* Informações Extras (Aside) */
+        aside {
+            background-color: var(--white);
+            padding: var(--padding-section);
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        aside h3 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+
+        aside ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        aside ul li {
+            margin-bottom: 10px;
+        }
+
+        aside ul li a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+        }
+        aside ul li a::before {
+            content: "🔗"; /* Ícone simples antes do link */
+        }
+
+
+        /* Rodapé */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Media Queries para Responsividade */
+        @media (min-width: 768px) {
+            header .container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            header h1 {
+                font-size: 3em;
+                margin-bottom: 0;
+            }
+
+            header p {
+                text-align: left;
+                margin-bottom: 0;
+            }
+
+            .profile-pic {
+                margin-right: 30px;
+                margin-bottom: 0;
+            }
+
+            nav ul {
+                justify-content: flex-end;
+            }
+
+            #projetos .projetos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            header {
+                padding: 15px 0;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 15px;
+            }
+            nav a {
+                padding: 10px;
+            }
+            main section {
+                padding: 40px 15px;
+                margin-bottom: 15px;
+            }
+            section h2 {
+                font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+            #habilidades ul {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            #projetos article {
+                padding: 25px;
+            }
+            #projetos article h3 {
+                font-size: 1.5em;
+            }
+            .project-links a {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            aside ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="./foto/Imagem do WhatsApp de 2025-07-06 à(s) 19.19.52_8001e085.jpg" alt="Sua Fotor" class="profile-pic"> <div>
+                <h1>João Pedro Treva Mendes</h1>
+                <p>Desenvolvedor empenhado por criar soluções inovadoras e eficientes.</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#sobre-mim">Sobre Mim</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="sobre-mim">
+            <h2>Sobre Mim</h2>
+            <p>Olá! Sou João Pedro Treva Mendes, um entusiasta da tecnologia com 1 ano de experiência em desenvolvimento web. Meu objetivo é criar meios para descomplexa processos com sistemas intuitivos e funcionais para os usuarios, sempre buscando as melhores práticas e a otimização de performance.</p>
+            <p>Comecei minha jornada na programação explorando front-end e desde então venho me aprofundando em C-Sharp. Adoro aprender e estou constantemente buscando novos desafios que me permitam expandir meus conhecimentos e aplicar minhas habilidades em projetos significativos.</p>
+        </section>
+
+        <section id="habilidades">
+            <h2>Habilidades</h2>
+            <ul>
+                <li>full-stack</li>
+                
+             </ul>
+        </section>
+
+        <section id="projetos">
+            <h2>Meus Projetos</h2>
+            <div class="projetos-grid">
+                <article>
+                    <h3>Projeto 1: POKEDES INTERATIVA DE LENDARIOS </h3>
+                    <p>A Pokédex Lendária é um site interativo dedicado exclusivamente aos Pokémons lendários do universo Pokémon.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/joaotreva/pokedex-lendarios.git" target="_blank">Ver no GitHub</a>
+                        <a href="./foto/Imagem do WhatsApp de 2025-07-06 à(s) 18.42.58_10ddbc06.jpg" target="_blank">Ver Demonstração</a>
+                    </div>
+                </article>
+
+                <article>
+                    <h3>Projeto 2: Blog Pessoal Responsivo</h3>
+                    <p>Uma plataforma de blog moderna e totalmente responsiva, construída com foco em acessibilidade e performance. Utilizei  HTML semântico, CSS Grid/Flexbox, e um pouco de JavaScript para interatividade. O design é limpo e adaptável a qualquer tamanho de tela.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/joaotreca/projeto2" target="_blank">Ver no GitHub</a>
+                        <a href="https://seu-link-de-demonstracao-projeto2.com" target="_blank">Ver Demonstração</a>
+                    </div>
+                </article>
+                </div>
+        </section>
+    </main>
+
+    <aside class="container">
+        <h3>Mais Sobre Mim</h3>
+        <ul>
+            <li>Curiosidade: Adoro ler, filmes, serie e passar meu tempo com aqueles ao meu redor!</li>
+            <li>Conecte-se comigo:</li>
+            <li><a href="https://github.com/joaotreva" target="_blank">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/seu-usuario-linkedin" target="_blank">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/joaopedrotreva/" target="_blank">Instagram</a></li>
+            <li><a href="https://x.com/abigaildohp" target="_blank">X</a></li>
+        </ul>
+    </aside>
+
+    <footer id="contato">
+        <div class="container">
+            <p>Entre em contato: <a href="joaotreva@gmail.com">joaotreva@gmail.com</a></p>
+            <p>&copy; 2025 João Pedro Treva Mendes. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
